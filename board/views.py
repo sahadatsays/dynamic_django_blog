@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import BlogModel, NavMenu, PrimaryNav
 from menu import Menu, MenuItem
 
@@ -12,7 +12,16 @@ def show(request):
         "blog":blogs,
         "navs": navs,
     }
-    return render(request, 'home.html', context)
+    return render(request, 'pages/home.html', context)
+
+
+def page(request, slug):
+    page_content = get_object_or_404(BlogModel, slug = slug)
+    return render(request, 'pages/page.html', {
+        'page_content': page_content, 
+        'navs': PrimaryNav.objects.filter()
+        })
+
 
 
 def about(request):

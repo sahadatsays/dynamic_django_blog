@@ -1,0 +1,15 @@
+{% extends "layouts.html" %}
+
+ {% block content %}
+
+  {% for post in blog %}
+  <h1>{{ post.title }}</h1>
+  <h3> {{ post.subtitle }} </h3>
+  <img src="{{ post.image }}"><br><br>
+
+  <article>{{ post.article|safe }}</article>
+
+  {% endfor %}
+
+  
+  {% endblock %}

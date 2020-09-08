@@ -1,0 +1,11 @@
+{% extends "layouts.html" %}
+
+{% block content %}
+
+<h1>{{ page_content.title }}</h1>
+<h2>{{ page_content.subtitle }}</h2>
+<article>
+     {{ page_content.article|safe }}
+</article>
+
+{% endblock %}
